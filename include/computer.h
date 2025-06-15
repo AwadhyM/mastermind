@@ -1,19 +1,19 @@
 #pragma once
 #include "colorPeg.h"
-#include <array>
-
-constexpr int codeLength = 4; // TODO move to game class?
+#include <vector>
 
 /**
  * @class Computer
- * @brief Represents a computer player that generates a random code of color pegs.
+ * @brief Represents a computer player that generates a random code of color
+ * pegs.
  */
 class Computer {
 public:
+  int codeLength;
   /**
    * @brief Constructs a Computer object and generates a random code.
    */
-  Computer();
+  Computer(int codeLength);
 
   /**
    * @brief Generates a single random ColorPeg.
@@ -24,14 +24,14 @@ public:
   /**
    * @brief The generated code consisting of a fixed-length array of ColorPegs.
    */
-  std::array<ColorPeg, codeLength> code;
+  std::vector<ColorPeg> code;
 
 private:
   /**
    * @brief Generates a random code of ColorPegs.
    * @return An array of ColorPegs representing the code.
    */
-  std::array<ColorPeg, codeLength> generateCode();
+  std::vector<ColorPeg> generateCode();
 
   /**
    * @brief Prints the current code to the standard output.

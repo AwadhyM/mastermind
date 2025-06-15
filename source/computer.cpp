@@ -2,18 +2,17 @@
 #include <iostream>
 #include <random>
 
-Computer::Computer() { code = generateCode(); }
+Computer::Computer(int codeLength) : codeLength(codeLength) {
+  code = generateCode();
+}
 
-std::array<ColorPeg, codeLength> Computer::generateCode() {
-  std::array<ColorPeg, codeLength> code{};
-
-  // Populate array with randomly generated values
-  for (auto &slot : code) {
+std::vector<ColorPeg> Computer::generateCode() {
+  std::vector<ColorPeg> generatedCode(codeLength);
+  for (auto &slot : generatedCode) {
     slot = Computer::gen();
   }
-
-  return code;
-};
+  return generatedCode;
+}
 
 ColorPeg Computer::gen() {
   std::random_device rd("default");

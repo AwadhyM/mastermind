@@ -2,7 +2,8 @@
 
 class Game {
 public:
-  Game() { welcomeMessage(); };
+  int codeLength;
+  Game(int codeLength);
 
 private:
   void welcomeMessage();

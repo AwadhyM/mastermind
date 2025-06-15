@@ -1,6 +1,8 @@
 #include "../include/game.h"
 #include <iostream>
 
+Game::Game(int codeLength) : codeLength(codeLength) { welcomeMessage(); };
+
 void Game::welcomeMessage() {
   std::cout << "=====================================\n";
   std::cout << "     Welcome to Mastermind!\n";

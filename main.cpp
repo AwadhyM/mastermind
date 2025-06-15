@@ -3,6 +3,6 @@
 #include <iostream>
 
 int main() {
-  Game game = Game();
-  Computer comp = Computer();
+  Game game = Game(4);
+  Computer comp = Computer(game.codeLength);
 }
