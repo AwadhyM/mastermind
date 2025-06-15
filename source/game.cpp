@@ -1,7 +1,7 @@
 #include "../include/game.h"
 #include <iostream>
 
-Game::Game(int codeLength) : codeLength(codeLength) { welcomeMessage(); };
+Game::Game(int codeLength) : codeLength(codeLength), opponent(codeLength) {};
 
 void Game::welcomeMessage() {
   std::cout << "=====================================\n";
