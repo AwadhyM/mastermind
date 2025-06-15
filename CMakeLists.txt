@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.5)
 project(mastermind)
-add_executable(mastermind main.cpp)
+add_executable(mastermind main.cpp source/game.cpp)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -14,5 +14,10 @@ FetchContent_Declare(
 enable_testing()
 
 FetchContent_MakeAvailable(googletest)
+
+target_include_directories(mastermind
+    PUBLIC
+    include
+)
 
 add_subdirectory(tests)
