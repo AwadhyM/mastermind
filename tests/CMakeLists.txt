@@ -1,9 +1,11 @@
 add_executable(
-    hello_test
-    hello_test.cpp
+    computer_test
+    computer_test.cpp
+	../source/computer.cpp
+	../source/colorPeg.cpp
 )
 target_link_libraries(
-    hello_test
+    computer_test
     GTest::gtest_main
 )
 
@@ -11,4 +13,4 @@ target_link_libraries(
 # TODO - target_link_libraries()
 
 include(GoogleTest)
-gtest_discover_tests(hello_test)
+gtest_discover_tests(computer_test)
