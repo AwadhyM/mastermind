@@ -6,8 +6,11 @@ public:
   int codeLength;
   Computer opponent;
   Game(int codeLength);
-  void start();
+  void promptUserToStartGame();
+  const std::string getPromptToStartGame();
+  void play();
+  void welcomeMessage();
 
 private:
-  void welcomeMessage();
+  void notifyUserThatCodeHasBeenGenerated();
 };

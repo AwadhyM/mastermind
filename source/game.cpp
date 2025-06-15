@@ -14,3 +14,27 @@ void Game::welcomeMessage() {
   std::cout << "Can you crack the code?\n\n";
   std::cout << "Good luck!\n\n";
 }
+
+void Game::play() {}
+
+void Game::promptUserToStartGame() {
+  std::string userInput = getPromptToStartGame();
+}
+
+const std::string Game::getPromptToStartGame() {
+  std::string userInput;
+  while (true) {
+    std::cout << "Would you like to start the game? Press Y/N: ";
+    std::getline(std::cin, userInput);
+
+    if (userInput == "Y" || userInput == "N") {
+      break;
+    }
+    std::cout << "Invalid input. Please enter 'Y' or 'N'.\n";
+  }
+  return userInput;
+}
+
+void Game::notifyUserThatCodeHasBeenGenerated() {
+  std::cout << "Computer opponent has generated a secret code\n";
+}
