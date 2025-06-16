@@ -16,6 +16,12 @@ public:
   Computer(int codeLength);
 
   /**
+   * @brief Generates a random code of ColorPegs.
+   * @return An array of ColorPegs representing the code.
+   */
+  std::vector<ColorPeg> generateCode();
+
+  /**
    * @brief Generates a single random ColorPeg.
    * @return A randomly generated ColorPeg.
    */
@@ -27,12 +33,6 @@ public:
   std::vector<ColorPeg> code;
 
 private:
-  /**
-   * @brief Generates a random code of ColorPegs.
-   * @return An array of ColorPegs representing the code.
-   */
-  std::vector<ColorPeg> generateCode();
-
   /**
    * @brief Prints the current code to the standard output.
    */

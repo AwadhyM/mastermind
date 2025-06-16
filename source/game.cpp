@@ -15,7 +15,10 @@ void Game::welcomeMessage() {
   std::cout << "Good luck!\n\n";
 }
 
-void Game::play() {}
+void Game::play() {
+  opponent.generateCode();
+  notifyUserThatCodeHasBeenGenerated();
+}
 
 void Game::promptUserToStartGame() {
   std::string userInput = getPromptToStartGame();

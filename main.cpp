@@ -1,8 +1,6 @@
 #include "include/game.h"
 #include <iostream>
 
-<<<<<<< Updated upstream int main() { Game game = Game(4); }
-=======
 int main() {
   Game game = Game(4);
   game.welcomeMessage();
@@ -15,4 +13,3 @@ int main() {
     std::cout << "\nProgramme terminated." << std::endl;
   }
 }
->>>>>>> Stashed changes
