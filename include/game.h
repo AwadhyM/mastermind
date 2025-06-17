@@ -4,7 +4,7 @@
 class Game {
 public:
   int codeLength;
-  Computer opponent;
+  Computer opponent; // TODO/NOTE - This is an example of tight coupling. Future improvement could be to use depdency injection
   Game(int codeLength);
   void promptUserToStartGame();
   const std::string getPromptToStartGame();
