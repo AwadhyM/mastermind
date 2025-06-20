@@ -24,10 +24,9 @@ CodePeg Player::guessCodePeg() {
     std::string userInput;
     std::getline(std::cin, userInput);
     try {
-      CodePeg peg = stringToPeg(
-          userInput); // TODO - BUG. Red and white included. These are reserved
-                      // for feedback pegs. So need to split the colorPeg struct
-      return peg;     // valid input, exit loop
+      CodePeg peg = stringToPeg(userInput);
+
+      return peg;
     } catch (const std::invalid_argument &e) {
       std::cout << "Invalid color. Please try again.\n";
     }
