@@ -54,10 +54,6 @@ CodePeg stringToPeg(const std::string &str) {
     return CodePeg::Green;
   if (input == "purple")
     return CodePeg::Purple;
-  if (input == "white")
-    return CodePeg::White;
-  if (input == "red")
-    return CodePeg::Red;
 
   throw std::invalid_argument("Invalid color peg string: " + str);
 }
