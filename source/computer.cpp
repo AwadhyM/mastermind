@@ -6,18 +6,18 @@ Computer::Computer(int codeLength) : codeLength(codeLength) {
   code = generateCode();
 }
 
-std::vector<ColorPeg> Computer::generateCode() {
-  std::vector<ColorPeg> generatedCode(codeLength);
+std::vector<CodePeg> Computer::generateCode() {
+  std::vector<CodePeg> generatedCode(codeLength);
   for (auto &slot : generatedCode) {
     slot = Computer::gen();
   }
   return generatedCode;
 }
 
-ColorPeg Computer::gen() {
+CodePeg Computer::gen() {
   std::random_device rd("default");
   std::uniform_int_distribution<> uid(0, 3);
-  ColorPeg val = static_cast<ColorPeg>(uid(rd));
+  CodePeg val = static_cast<CodePeg>(uid(rd));
   return val;
 }
 

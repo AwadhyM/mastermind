@@ -13,7 +13,7 @@ public:
   const std::string getPromptToStartGame();
   void play();
   void welcomeMessage();
-  void printCode(std::array<ColorPeg, 4> code);
+  void printCode(std::array<CodePeg, 4> code);
 
 private:
   void notifyUserThatCodeHasBeenGenerated();

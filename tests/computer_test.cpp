@@ -17,8 +17,8 @@ TEST_F(TestComputer, GeneratedCodeHasValidLengthAndColors) {
 
     // Check each peg is in valid enum range
     for (const auto &peg : code) {
-      EXPECT_TRUE(peg >= ColorPeg::Blue &&
-                  peg <= ColorPeg::Purple); // Adjust based on enum
+      EXPECT_TRUE(peg >= CodePeg::Blue &&
+                  peg <= CodePeg::Purple); // Adjust based on enum
     }
   }
 }

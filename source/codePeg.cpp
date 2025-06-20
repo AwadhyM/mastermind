@@ -1,63 +1,63 @@
-#include "../include/colorPeg.h"
+#include "../include/codePeg.h"
 #include <algorithm>
 #include <stdexcept>
 
-const std::string pegToString(ColorPeg peg) {
+const std::string pegToString(CodePeg peg) {
   switch (peg) {
-  case ColorPeg::Blue:
+  case CodePeg::Blue:
     return "Blue";
-  case ColorPeg::Orange:
+  case CodePeg::Orange:
     return "Orange";
-  case ColorPeg::Green:
+  case CodePeg::Green:
     return "Green";
-  case ColorPeg::Purple:
+  case CodePeg::Purple:
     return "Purple";
-  case ColorPeg::White:
+  case CodePeg::White:
     return "White";
-  case ColorPeg::Red:
+  case CodePeg::Red:
     return "Red";
   default:
     return "Unknown";
   }
 }
 
-const std::string toAnsi(ColorPeg peg) {
+const std::string toAnsi(CodePeg peg) {
   switch (peg) {
-  case ColorPeg::Blue:
+  case CodePeg::Blue:
     return "\033[34m●\033[0m";
-  case ColorPeg::Green:
+  case CodePeg::Green:
     return "\033[32m●\033[0m";
-  case ColorPeg::Orange:
+  case CodePeg::Orange:
     return "\033[38;2;255;165;0m●\033[0m";
-  case ColorPeg::Purple:
+  case CodePeg::Purple:
     return "\033[35m●\033[0m";
-  case ColorPeg::White:
+  case CodePeg::White:
     return "\033[97m●\033[0m";
-  case ColorPeg::Red:
+  case CodePeg::Red:
     return "\033[31m●\033[0m";
   default:
     return " ";
   }
 }
 
-ColorPeg stringToPeg(const std::string &str) {
+CodePeg stringToPeg(const std::string &str) {
   std::string input = str;
 
   // Make input case-insensitive
   std::transform(input.begin(), input.end(), input.begin(), ::tolower);
 
   if (input == "blue")
-    return ColorPeg::Blue;
+    return CodePeg::Blue;
   if (input == "orange")
-    return ColorPeg::Orange;
+    return CodePeg::Orange;
   if (input == "green")
-    return ColorPeg::Green;
+    return CodePeg::Green;
   if (input == "purple")
-    return ColorPeg::Purple;
+    return CodePeg::Purple;
   if (input == "white")
-    return ColorPeg::White;
+    return CodePeg::White;
   if (input == "red")
-    return ColorPeg::Red;
+    return CodePeg::Red;
 
   throw std::invalid_argument("Invalid color peg string: " + str);
 }

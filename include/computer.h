@@ -1,5 +1,5 @@
 #pragma once
-#include "colorPeg.h"
+#include "codePeg.h"
 #include <vector>
 
 /**
@@ -16,21 +16,21 @@ public:
   Computer(int codeLength);
 
   /**
-   * @brief Generates a random code of ColorPegs.
-   * @return An array of ColorPegs representing the code.
+   * @brief Generates a random code of CodePegs.
+   * @return An array of CodePegs representing the code.
    */
-  std::vector<ColorPeg> generateCode();
+  std::vector<CodePeg> generateCode();
 
   /**
-   * @brief Generates a single random ColorPeg.
-   * @return A randomly generated ColorPeg.
+   * @brief Generates a single random CodePeg.
+   * @return A randomly generated CodePeg.
    */
-  static ColorPeg gen();
+  static CodePeg gen();
 
   /**
-   * @brief The generated code consisting of a fixed-length array of ColorPegs.
+   * @brief The generated code consisting of a fixed-length array of CodePegs.
    */
-  std::vector<ColorPeg> code;
+  std::vector<CodePeg> code;
 
 private:
   /**

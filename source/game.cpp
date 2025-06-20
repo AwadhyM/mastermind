@@ -42,7 +42,7 @@ void Game::notifyUserThatCodeHasBeenGenerated() {
   std::cout << "Computer opponent has generated a secret code\n";
 }
 
-void Game::printCode(std::array<ColorPeg, 4> code) {
+void Game::printCode(std::array<CodePeg, 4> code) {
   for (int i = 0; i < code.size(); i++) {
     if (i == code.size() - 1) {
       std::cout << pegToString(code[i]) << std::endl;
