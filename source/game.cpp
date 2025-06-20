@@ -41,3 +41,13 @@ const std::string Game::getPromptToStartGame() {
 void Game::notifyUserThatCodeHasBeenGenerated() {
   std::cout << "Computer opponent has generated a secret code\n";
 }
+
+void Game::printCode(std::array<ColorPeg, 4> code) {
+  for (int i = 0; i < code.size(); i++) {
+    if (i == code.size() - 1) {
+      std::cout << pegToString(code[i]) << std::endl;
+    } else {
+      std::cout << pegToString(code[i]) << ",";
+    }
+  }
+}

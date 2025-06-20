@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.5)
 project(mastermind)
-add_executable(mastermind main.cpp source/game.cpp source/computer.cpp source/colorPeg.cpp)
+add_executable(mastermind main.cpp source/game.cpp source/computer.cpp source/colorPeg.cpp source/board.cpp source/player.cpp)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)

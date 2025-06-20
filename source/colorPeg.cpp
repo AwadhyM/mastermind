@@ -1,4 +1,6 @@
 #include "../include/colorPeg.h"
+#include <algorithm>
+#include <stdexcept>
 
 const std::string pegToString(ColorPeg peg) {
   switch (peg) {
@@ -36,4 +38,26 @@ const std::string toAnsi(ColorPeg peg) {
   default:
     return " ";
   }
+}
+
+ColorPeg stringToPeg(const std::string &str) {
+  std::string input = str;
+
+  // Make input case-insensitive
+  std::transform(input.begin(), input.end(), input.begin(), ::tolower);
+
+  if (input == "blue")
+    return ColorPeg::Blue;
+  if (input == "orange")
+    return ColorPeg::Orange;
+  if (input == "green")
+    return ColorPeg::Green;
+  if (input == "purple")
+    return ColorPeg::Purple;
+  if (input == "white")
+    return ColorPeg::White;
+  if (input == "red")
+    return ColorPeg::Red;
+
+  throw std::invalid_argument("Invalid color peg string: " + str);
 }

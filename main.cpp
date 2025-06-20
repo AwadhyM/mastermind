@@ -1,3 +1,5 @@
+#include "include/board.h"
+#include "include/colorPeg.h"
 #include "include/game.h"
 #include <iostream>
 
@@ -12,4 +14,7 @@ int main() {
   } else {
     std::cout << "\nProgramme terminated." << std::endl;
   }
+
+  Board board = Board();
+  game.printCode(game.user.makeGuess());
 }

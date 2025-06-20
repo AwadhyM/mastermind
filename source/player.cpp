@@ -1,0 +1,33 @@
+#include "../include/player.h"
+#include <iostream>
+
+void Player::guessEntryMessage(int codePart) {
+	const std::array<std::string, 4> positions {"first", "second", "third", "fourth"};
+	std::cout << "Enter your guess for the part of the of the code:";
+}
+
+std::array<ColorPeg, 4> Player::makeGuess() {
+	std::array<ColorPeg, 4> code {};
+
+	int codePart {0};
+	while (codePart < 4) {
+		guessEntryMessage(codePart);
+		code[codePart] = guessColorPeg();
+		codePart++;
+	}
+	return code;
+}
+
+ColorPeg Player::guessColorPeg() {
+	while (true) {
+        std::string userInput;
+		std::getline(std::cin, userInput);
+		try {
+            ColorPeg peg = stringToPeg(userInput); // TODO - BUG. Red and white included. These are reserved for feedback pegs. So need to split the colorPeg struct
+            return peg;  // valid input, exit loop
+        } catch (const std::invalid_argument& e) {
+            std::cout << "Invalid color. Please try again.\n";
+        }
+	}
+}
+
