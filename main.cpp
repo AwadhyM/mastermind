@@ -13,6 +13,5 @@ int main() {
   } else {
     std::cout << "\nProgramme terminated." << std::endl;
   }
-
   game.printCode(game.user.makeGuess());
 }

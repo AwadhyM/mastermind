@@ -19,7 +19,7 @@ public:
    * @brief Generates a random code of CodePegs.
    * @return An array of CodePegs representing the code.
    */
-  std::vector<CodePeg> generateCode();
+  std::array<CodePeg, 4> generateCode();
 
   /**
    * @brief Generates a single random CodePeg.
@@ -30,11 +30,7 @@ public:
   /**
    * @brief The generated code consisting of a fixed-length array of CodePegs.
    */
-  std::vector<CodePeg> code;
+  std::array<CodePeg, 4> code;
 
 private:
-  /**
-   * @brief Prints the current code to the standard output.
-   */
-  void printCode() const;
 };
