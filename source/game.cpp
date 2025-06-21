@@ -16,7 +16,7 @@ void Game::welcomeMessage() {
 }
 
 void Game::play() {
-  opponent.generateCode();
+  opponent.emplace(codeLength);
   notifyUserThatCodeHasBeenGenerated();
 }
 

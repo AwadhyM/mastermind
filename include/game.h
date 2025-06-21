@@ -1,11 +1,14 @@
 #pragma once
 #include "computer.h"
 #include "player.h"
+#include <iostream>
+#include <optional>
 
 class Game {
 public:
   int codeLength;
-  Computer opponent; // TODO/NOTE - This is an example of tight coupling. Future
+  std::optional<Computer>
+      opponent; // TODO/NOTE - This is an example of tight coupling. Future
   Player user;
 
   Game(int codeLength);

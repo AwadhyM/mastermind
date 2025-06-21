@@ -17,10 +17,11 @@ public:
   Computer(int codeLength);
 
   /**
-   * @brief Generates a random code of CodePegs.
+   * @brief Generates a random code of CodePegs that the other player is
+   * required to guess.
    * @return An array of CodePegs representing the code.
    */
-  std::array<CodePeg, 4> generateCode();
+  void generateCode();
 
   std::array<CodePeg, 4> getCode() const;
 

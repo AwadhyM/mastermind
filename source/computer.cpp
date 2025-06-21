@@ -4,16 +4,14 @@
 
 std::array<CodePeg, 4> Computer::getCode() const { return code; }
 
-Computer::Computer(int codeLength) : codeLength(codeLength) {
-  code = generateCode();
-}
+Computer::Computer(int codeLength) : codeLength(codeLength) { generateCode(); }
 
-std::array<CodePeg, 4> Computer::generateCode() {
+void Computer::generateCode() {
   std::array<CodePeg, 4> generatedCode{};
   for (auto &slot : generatedCode) {
     slot = Computer::gen();
   }
-  return generatedCode;
+  code = generatedCode;
 }
 
 CodePeg Computer::gen() {
