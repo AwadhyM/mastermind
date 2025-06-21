@@ -10,7 +10,7 @@ TEST_F(TestComputer, GeneratedCodeHasValidLengthAndColors) {
   // Generate and test a code 25 times
   for (int i = 0; i < 25; i++) {
     Computer comp = Computer(4);
-    auto code = comp.code;
+    auto code = comp.getCode();
 
     // Check correct length
     EXPECT_EQ(code.size(), comp.codeLength);

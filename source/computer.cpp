@@ -2,6 +2,8 @@
 #include <iostream>
 #include <random>
 
+std::array<CodePeg, 4> Computer::getCode() const { return code; }
+
 Computer::Computer(int codeLength) : codeLength(codeLength) {
   code = generateCode();
 }
