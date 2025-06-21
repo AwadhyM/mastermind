@@ -1,9 +1,11 @@
 #include "../include/game.h"
 #include <iostream>
 
-Game::Game(int codeLength) : codeLength(codeLength), opponent(codeLength) {};
+Game::Game(int codeLength) : codeLength(codeLength), opponent(codeLength) {
+  welcomeMessage();
+};
 
-void Game::welcomeMessage() {
+void Game::welcomeMessage() const {
   std::cout << "=====================================\n";
   std::cout << "     Welcome to Mastermind!\n";
   std::cout << "=====================================\n";
@@ -20,11 +22,11 @@ void Game::play() {
   notifyUserThatCodeHasBeenGenerated();
 }
 
-void Game::promptUserToStartGame() {
+void Game::promptUserToStartGame() const {
   std::string userInput = getPromptToStartGame();
 }
 
-const std::string Game::getPromptToStartGame() {
+const std::string Game::getPromptToStartGame() const {
   std::string userInput;
   while (true) {
     std::cout << "Would you like to start the game? Press Y/N: ";
@@ -38,11 +40,11 @@ const std::string Game::getPromptToStartGame() {
   return userInput;
 }
 
-void Game::notifyUserThatCodeHasBeenGenerated() {
+void Game::notifyUserThatCodeHasBeenGenerated() const {
   std::cout << "Computer opponent has generated a secret code\n";
 }
 
-void Game::printCode(std::array<CodePeg, 4> code) {
+void Game::printCode(std::array<CodePeg, 4> code) const {
   for (int i = 0; i < code.size(); i++) {
     if (i == code.size() - 1) {
       std::cout << pegToString(code[i]) << std::endl;

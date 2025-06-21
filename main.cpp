@@ -4,7 +4,6 @@
 
 int main() {
   Game game = Game(4);
-  game.welcomeMessage();
 
   std::string userChoice = game.getPromptToStartGame();
 
