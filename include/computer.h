@@ -10,6 +10,7 @@
 class Computer {
 public:
   int codeLength;
+
   /**
    * @brief Constructs a Computer object and generates a random code.
    */
@@ -21,6 +22,9 @@ public:
    */
   std::array<CodePeg, 4> generateCode();
 
+  std::array<CodePeg, 4> getCode() const;
+
+private:
   /**
    * @brief Generates a single random CodePeg.
    * @return A randomly generated CodePeg.
@@ -31,6 +35,4 @@ public:
    * @brief The generated code consisting of a fixed-length array of CodePegs.
    */
   std::array<CodePeg, 4> code;
-
-private:
 };
