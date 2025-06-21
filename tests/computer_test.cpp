@@ -9,11 +9,12 @@ public:
 TEST_F(TestComputer, GeneratedCodeHasValidLengthAndColors) {
   // Generate and test a code 25 times
   for (int i = 0; i < 25; i++) {
-    Computer comp = Computer(4);
+    const int codeLength = 4;
+    Computer comp = Computer();
     auto code = comp.getCode();
 
     // Check correct length
-    EXPECT_EQ(code.size(), comp.codeLength);
+    EXPECT_EQ(code.size(), codeLength);
 
     // Check each peg is in valid enum range
     for (const auto &peg : code) {

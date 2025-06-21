@@ -5,7 +5,7 @@
 
 class Game {
 public:
-  Game(int codeLength);
+  Game();
   void promptUserToStartGame() const;
   const std::string getPromptToStartGame() const;
   void play();
@@ -14,7 +14,6 @@ public:
   const Player &getUser() const { return user; }
 
 private:
-  int codeLength;
   std::optional<Computer> opponent; // TODO/NOTE - This is an example of tight
   Player user;
   void welcomeMessage() const;

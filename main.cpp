@@ -3,7 +3,7 @@
 #include <iostream>
 
 int main() {
-  Game game = Game(4);
+  Game game = Game();
 
   std::string userChoice = game.getPromptToStartGame();
 

@@ -1,9 +1,7 @@
 #include "../include/game.h"
 #include <iostream>
 
-Game::Game(int codeLength) : codeLength(codeLength), opponent(codeLength) {
-  welcomeMessage();
-};
+Game::Game() { welcomeMessage(); };
 
 void Game::welcomeMessage() const {
   std::cout << "=====================================\n";
@@ -18,7 +16,7 @@ void Game::welcomeMessage() const {
 }
 
 void Game::play() {
-  opponent.emplace(codeLength);
+  opponent.emplace();
   notifyUserThatCodeHasBeenGenerated();
 }
 

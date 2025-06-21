@@ -1,10 +1,9 @@
 #include "../include/computer.h"
-#include <iostream>
 #include <random>
 
 std::array<CodePeg, 4> Computer::getCode() const { return code; }
 
-Computer::Computer(int codeLength) : codeLength(codeLength) { generateCode(); }
+Computer::Computer() { generateCode(); }
 
 void Computer::generateCode() {
   std::array<CodePeg, 4> generatedCode{};

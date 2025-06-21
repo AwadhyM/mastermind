@@ -9,12 +9,10 @@
  */
 class Computer {
 public:
-  int codeLength;
-
   /**
    * @brief Constructs a Computer object and generates a random code.
    */
-  Computer(int codeLength);
+  Computer();
 
   /**
    * @brief Generates a random code of CodePegs that the other player is
