@@ -1,13 +1,13 @@
 #include "../include/player.h"
 #include <iostream>
 
-void Player::guessEntryMessage(int codePart) {
+void Player::guessEntryMessage(int codePart) const {
   const std::array<std::string, 4> positions{"first", "second", "third",
                                              "fourth"};
   std::cout << "Enter your guess for the part of the of the code:";
 }
 
-std::array<CodePeg, 4> Player::makeGuess() {
+std::array<CodePeg, 4> Player::makeGuess() const {
   std::array<CodePeg, 4> code{};
 
   int codePart{0};
@@ -19,7 +19,7 @@ std::array<CodePeg, 4> Player::makeGuess() {
   return code;
 }
 
-CodePeg Player::guessCodePeg() {
+CodePeg Player::guessCodePeg() const {
   while (true) {
     std::string userInput;
     std::getline(std::cin, userInput);

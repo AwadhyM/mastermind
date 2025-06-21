@@ -6,11 +6,6 @@
 
 class Game {
 public:
-  int codeLength;
-  std::optional<Computer>
-      opponent; // TODO/NOTE - This is an example of tight coupling. Future
-  Player user;
-
   Game(int codeLength);
   void promptUserToStartGame();
   const std::string getPromptToStartGame();
@@ -18,6 +13,12 @@ public:
   void welcomeMessage();
   void printCode(std::array<CodePeg, 4> code);
 
+  const Player &getUser() const { return user; }
+
 private:
   void notifyUserThatCodeHasBeenGenerated();
+  int codeLength;
+  std::optional<Computer> opponent; // TODO/NOTE - This is an example of tight
+                                    // coupling. Future work needed
+  Player user;
 };

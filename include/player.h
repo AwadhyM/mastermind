@@ -7,9 +7,9 @@
 class Player {
 public:
   Player() {};
-  std::array<CodePeg, 4> makeGuess();
-  CodePeg guessCodePeg();
-  void guessEntryMessage(int codePart);
+  std::array<CodePeg, 4> makeGuess() const;
+  CodePeg guessCodePeg() const;
+  void guessEntryMessage(int codePart) const;
 
 private:
 };
