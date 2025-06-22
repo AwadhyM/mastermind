@@ -1,7 +1,7 @@
 #pragma once
 #include <string>
 
-enum class CodePeg { Blue, Orange, Green, Purple, White, Red };
+enum class CodePeg { Blue, Orange, Yellow, Purple };
 
 const std::string pegToString(CodePeg peg);
 
