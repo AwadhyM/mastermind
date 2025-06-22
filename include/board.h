@@ -5,6 +5,7 @@
 class Board {
 public:
   void setGuess(std::array<CodePeg, 4> playerGuess);
+  std::array<CodePeg, 4> getGuess() const;
 
 private:
   std::array<CodePeg, 4> guess{};
