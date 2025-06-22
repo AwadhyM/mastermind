@@ -1,9 +1,11 @@
-class Board {
+#include "../include/codePeg.h"
+#include "../include/feedbackPeg.h"
+#include <array>
 
+class Board {
 public:
-    Board();
-    void renderFirstRow();
+  void setGuess(std::array<CodePeg, 4> playerGuess);
+
 private:
-    const int boardWidth { 32 }; // TODO - Future work? Pass as arg for more customisability?
-    const int feedbackWidth { 8 };
+  std::array<CodePeg, 4> guess{};
 };
