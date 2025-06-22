@@ -9,4 +9,5 @@ public:
 
 private:
   std::array<CodePeg, 4> guess{};
+  std::array<FeedbackPeg, 4> feedback{};
 };
