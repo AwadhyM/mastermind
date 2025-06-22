@@ -1,6 +1,7 @@
 #pragma once
 #include "codePeg.h"
-#include <vector>
+#include "feedbackPeg.h"
+#include <array>
 
 /**
  * @class Computer
@@ -20,6 +21,13 @@ public:
    * @return An array of CodePegs representing the code.
    */
   void generateCode();
+
+  /**
+   * @brief Generates feedback based on other players guess
+   * @return An array of FeedbackPegs representing the code.
+   */
+  std::array<FeedbackPeg, 4>
+  generateFeedback(const std::array<CodePeg, 4> &guess) const;
 
   std::array<CodePeg, 4> getCode() const;
 

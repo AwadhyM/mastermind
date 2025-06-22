@@ -1,6 +1,6 @@
 #include "../include/feedbackPeg.h"
 
-const std::string pegToString(FeedbackPeg peg) {
+const std::string feedbackPegToString(FeedbackPeg peg) {
   switch (peg) {
   case FeedbackPeg::White:
     return "White";

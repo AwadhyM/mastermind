@@ -1,4 +1,6 @@
 #include "../include/game.h"
+#include "../include/board.h"
+#include "../include/feedbackPeg.h"
 #include <iostream>
 
 Game::Game() { welcomeMessage(); };
@@ -18,6 +20,15 @@ void Game::welcomeMessage() const {
 void Game::play() {
   opponent.emplace();
   notifyUserThatCodeHasBeenGenerated();
+  printCode(opponent->getCode());
+
+  for (int i = 0; i <= 4; i++) {
+    Board board{};
+    board.setGuess(user.makeGuess());
+    printCode(board.getGuess());
+    const auto feedback = opponent->generateFeedback(board.getGuess());
+    printFeedback(feedback);
+  }
 }
 
 void Game::promptUserToStartGame() const {
@@ -48,6 +59,16 @@ void Game::printCode(std::array<CodePeg, 4> code) const {
       std::cout << pegToString(code[i]) << std::endl;
     } else {
       std::cout << pegToString(code[i]) << ",";
+    }
+  }
+}
+
+void Game::printFeedback(std::array<FeedbackPeg, 4> code) const {
+  for (int i = 0; i < code.size(); i++) {
+    if (i == code.size() - 1) {
+      std::cout << feedbackPegToString(code[i]) << std::endl;
+    } else {
+      std::cout << feedbackPegToString(code[i]) << ",";
     }
   }
 }

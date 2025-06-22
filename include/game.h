@@ -10,6 +10,7 @@ public:
   const std::string getPromptToStartGame() const;
   void play();
   void printCode(std::array<CodePeg, 4> code) const;
+  void printFeedback(std::array<FeedbackPeg, 4> code) const;
 
   const Player &getUser() const { return user; }
 
