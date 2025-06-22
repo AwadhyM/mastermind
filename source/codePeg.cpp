@@ -10,6 +10,8 @@ const std::string pegToString(CodePeg peg) {
     return "Orange";
   case CodePeg::Purple:
     return "Purple";
+  case CodePeg::Yellow:
+    return "Yellow";
   default:
     return "Unknown";
   }
@@ -38,6 +40,8 @@ CodePeg stringToPeg(const std::string &str) {
     return CodePeg::Blue;
   if (input == "orange")
     return CodePeg::Orange;
+  if (input == "yellow")
+    return CodePeg::Yellow;
   if (input == "purple")
     return CodePeg::Purple;
 
