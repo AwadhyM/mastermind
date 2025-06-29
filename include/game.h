@@ -1,4 +1,5 @@
 #pragma once
+#include "board.h"
 #include "computer.h"
 #include "player.h"
 #include <optional>
@@ -16,7 +17,9 @@ public:
 
 private:
   std::optional<Computer> opponent; // TODO/NOTE - This is an example of tight
+  std::optional<Board> board;
   Player user;
   void welcomeMessage() const;
   void notifyUserThatCodeHasBeenGenerated() const;
+  bool isGameOver() const;
 };

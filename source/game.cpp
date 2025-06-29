@@ -18,16 +18,18 @@ void Game::welcomeMessage() const {
 }
 
 void Game::play() {
+  board.emplace();
   opponent.emplace();
   notifyUserThatCodeHasBeenGenerated();
   printCode(opponent->getCode());
 
   for (int i = 0; i <= 4; i++) {
-    Board board{};
-    board.setGuess(user.makeGuess());
-    printCode(board.getGuess());
-    const auto feedback = opponent->generateFeedback(board.getGuess());
-    printFeedback(feedback);
+    const auto guess = user.makeGuess();
+    const auto feedback = opponent->generateFeedback(
+        guess); // Not sure how right this is. Either get the guess from above.
+                // Or add the guess to the board, and then get it
+    board->addRound(guess, feedback);
+    board->render();
   }
 }
 
@@ -71,4 +73,8 @@ void Game::printFeedback(std::array<FeedbackPeg, 4> code) const {
       std::cout << feedbackPegToString(code[i]) << ",";
     }
   }
+}
+
+bool Game::isGameOver() const {
+  return board->getNumberOfRoundsCompleted() == 12;
 }
