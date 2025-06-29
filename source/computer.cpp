@@ -1,6 +1,6 @@
 #include "../include/computer.h"
 #include "../include/feedbackPeg.h"
-#include <iostream>
+#include <algorithm>
 #include <random>
 
 std::array<CodePeg, 4> Computer::getCode() const { return code; }
@@ -30,7 +30,7 @@ Computer::generateFeedback(const std::array<CodePeg, 4> &guess) const {
     if (guess[i] == code[i]) {
       // Correct color in the correct position
       feedback[i] = FeedbackPeg::Green;
-    } else if (std::find(code.begin(), code.end(), guess[i])) {
+    } else if (std::find(code.begin(), code.end(), guess[i]) != code.end()) {
       // Correct color but incorrect positon
       feedback[i] = FeedbackPeg::White;
     } else {
