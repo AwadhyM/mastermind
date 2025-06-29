@@ -25,6 +25,8 @@ const std::string toAnsi(CodePeg peg) {
     return "\033[38;2;255;165;0m●\033[0m";
   case CodePeg::Purple:
     return "\033[35m●\033[0m";
+  case CodePeg::Yellow:
+    return "\033[33m●\033[0m";
   default:
     return " ";
   }
