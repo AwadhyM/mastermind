@@ -7,10 +7,7 @@
 class Game {
 
 public:
-enum class GameResult {
-    PLAYER_WON,
-    PLAYER_LOSS
-};
+  enum class GameResult { PLAYER_WON, PLAYER_LOSS };
 
   Game();
   void promptUserToStartGame() const;

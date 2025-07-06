@@ -14,7 +14,9 @@ int main() {
   }
 
   if (res == Game::GameResult::PLAYER_WON) {
-	std::cout << "Congratulation you guessed the code correctly" << std::endl;
+    std::cout << "Congratulation you guessed the code correctly" << std::endl;
   } else {
-	std::cout << "You failed to guess the code better luck next time.." << std::endl;  }
+    std::cout << "You failed to guess the code better luck next time.."
+              << std::endl;
+  }
 }
