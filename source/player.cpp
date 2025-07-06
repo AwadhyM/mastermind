@@ -1,5 +1,5 @@
-#include "../include/player.h"
 #include <iostream>
+#include "../include/player.h"
 
 void Player::guessEntryMessage(int codePart) const {
   const std::array<std::string, 4> positions{"first", "second", "third",
