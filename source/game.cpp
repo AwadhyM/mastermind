@@ -1,8 +1,8 @@
 #include <algorithm>
 #include <iostream>
-#include "../include/board.h"
-#include "../include/feedbackPeg.h"
-#include "../include/game.h"
+#include "board.h"
+#include "feedbackPeg.h"
+#include "game.h"
 
 Game::Game() { welcomeMessage(); };
 

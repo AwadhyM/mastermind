@@ -1,9 +1,9 @@
 #pragma once
 
-#include "../include/codePeg.h"
-#include "../include/feedbackPeg.h"
 #include <array>
 #include <vector>
+#include "codePeg.h"
+#include "feedbackPeg.h"
 
 /**
  * @class Board

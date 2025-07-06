@@ -21,8 +21,8 @@ enable_testing()
 FetchContent_MakeAvailable(googletest)
 
 target_include_directories(mastermind
-    PUBLIC
-    include
+    PRIVATE
+    ${PROJECT_SOURCE_DIR}/include
 )
 
 add_subdirectory(tests)

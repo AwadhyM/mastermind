@@ -1,4 +1,4 @@
-#include "../include/feedbackPeg.h"
+#include "feedbackPeg.h"
 
 const std::string feedbackPegToString(FeedbackPeg peg) {
   switch (peg) {
