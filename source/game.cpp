@@ -1,7 +1,8 @@
+#include <algorithm>
+#include <iostream>
 #include "../include/game.h"
 #include "../include/board.h"
 #include "../include/feedbackPeg.h"
-#include <iostream>
 
 Game::Game() { welcomeMessage(); };
 
@@ -75,6 +76,7 @@ void Game::printFeedback(std::array<FeedbackPeg, 4> code) const {
   }
 }
 
-bool Game::isGameOver() const {
-  return board->getNumberOfRoundsCompleted() == 12;
+bool Game::hasPlayerWon() const {
+	const auto feedbackCurrentRound = board->getBoard().end()->feedback;
+	return std::all_of(feedbackCurrentRound.begin(), feedbackCurrentRound.end(), [](FeedbackPeg f) { return f == FeedbackPeg::Green; });
 }

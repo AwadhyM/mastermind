@@ -21,5 +21,5 @@ private:
   Player user;
   void welcomeMessage() const;
   void notifyUserThatCodeHasBeenGenerated() const;
-  bool isGameOver() const;
+  bool hasPlayerWon() const;
 };
