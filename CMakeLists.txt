@@ -4,7 +4,10 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 project(mastermind)
-add_executable(mastermind main.cpp source/game.cpp source/computer.cpp source/codePeg.cpp source/player.cpp source/board.cpp source/feedbackPeg.cpp )
+
+file(GLOB_RECURSE SOURCES CONFIGURE_DEPENDS source/*.cpp)
+
+add_executable(mastermind main.cpp ${SOURCES})
 
 
 include(FetchContent)
