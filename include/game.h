@@ -5,11 +5,17 @@
 #include <optional>
 
 class Game {
+
 public:
+enum class GameResult {
+    PLAYER_WON,
+    PLAYER_LOSS
+};
+
   Game();
   void promptUserToStartGame() const;
   const std::string getPromptToStartGame() const;
-  void play();
+  GameResult play();
   void printCode(std::array<CodePeg, 4> code) const;
   void printFeedback(std::array<FeedbackPeg, 4> code) const;
 

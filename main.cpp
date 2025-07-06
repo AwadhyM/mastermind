@@ -8,9 +8,13 @@ int main() {
   std::string userChoice = game.getPromptToStartGame();
 
   if (userChoice == "Y") {
-    game.play();
+    auto res = game.play();
   } else {
     std::cout << "\nProgramme terminated." << std::endl;
   }
-  game.printCode(game.getUser().makeGuess());
+
+  if (res == Game::GameResult::PLAYER_WON) {
+	std::cout << "Congratulation you guessed the code correctly" << std::endl;
+  } else {
+	std::cout << "You failed to guess the code better luck next time.." << std::endl;  }
 }

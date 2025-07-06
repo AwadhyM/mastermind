@@ -18,7 +18,7 @@ void Game::welcomeMessage() const {
   std::cout << "Good luck!\n\n";
 }
 
-void Game::play() {
+Game::GameResult Game::play() {
   board.emplace();
   opponent.emplace();
   notifyUserThatCodeHasBeenGenerated();
@@ -31,7 +31,12 @@ void Game::play() {
                 // Or add the guess to the board, and then get it
     board->addRound(guess, feedback);
     board->render();
+
+	if (hasPlayerWon())
+		return GameResult::PLAYER_WON;
   }
+
+  return GameResult::PLAYER_LOSS;
 }
 
 void Game::promptUserToStartGame() const {
