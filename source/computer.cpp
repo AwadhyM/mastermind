@@ -1,7 +1,7 @@
-#include "../include/computer.h"
-#include "../include/feedbackPeg.h"
 #include <algorithm>
 #include <random>
+#include "../include/computer.h"
+#include "../include/feedbackPeg.h"
 
 std::array<CodePeg, 4> Computer::getCode() const { return code; }
 
