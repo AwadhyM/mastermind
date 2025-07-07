@@ -82,7 +82,7 @@ void Game::printFeedback(std::array<FeedbackPeg, 4> code) const {
 }
 
 bool Game::hasPlayerWon() const {
-  const auto feedbackCurrentRound = board->getBoard().end()->feedback;
+  const auto feedbackCurrentRound = board->getBoard().back().feedback;
   return std::all_of(feedbackCurrentRound.begin(), feedbackCurrentRound.end(),
                      [](FeedbackPeg f) { return f == FeedbackPeg::Green; });
 }
