@@ -26,4 +26,5 @@ private:
   void welcomeMessage() const;
   void notifyUserThatCodeHasBeenGenerated() const;
   bool hasPlayerWon() const;
+  int numberOfRounds;
 };

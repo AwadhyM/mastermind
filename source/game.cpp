@@ -6,7 +6,7 @@
 #include "board.h"
 #include "feedbackPeg.h"
 
-Game::Game() { welcomeMessage(); };
+Game::Game() : numberOfRounds(12) { welcomeMessage(); };
 
 void Game::welcomeMessage() const {
   std::cout << "=====================================\n";
@@ -26,7 +26,7 @@ Game::GameResult Game::play() {
   notifyUserThatCodeHasBeenGenerated();
   printCode(opponent->getCode());
 
-  for (int i = 0; i <= 4; i++) {
+  for (int i = 0; i <= numberOfRounds; i++) {
     const auto guess = user.makeGuess();
     const auto feedback = opponent->generateFeedback(
         guess); // Not sure how right this is. Either get the guess from above.
