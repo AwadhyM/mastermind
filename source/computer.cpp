@@ -24,19 +24,42 @@ CodePeg Computer::gen() {
 
 std::array<FeedbackPeg, 4>
 Computer::generateFeedback(const std::array<CodePeg, 4> &guess) const {
-  // Iterate through each array of guess
   std::array<FeedbackPeg, 4> feedback{};
-  for (int i = 0; i < 4; i++) {
+  std::array<bool, 4> codeUsed{};
+  std::array<bool, 4> guessUsed{};
+
+  int blackCount = 0;
+  int whiteCount = 0;
+
+  // count black pegs (correct colour and position)
+  for (int i = 0; i < 4; ++i) {
     if (guess[i] == code[i]) {
-      // Correct color in the correct position
-      feedback[i] = FeedbackPeg::Green;
-    } else if (std::find(code.begin(), code.end(), guess[i]) != code.end()) {
-      // Correct color but incorrect positon
-      feedback[i] = FeedbackPeg::White;
-    } else {
-      // Color is no where to be seen in the code
-      feedback[i] = FeedbackPeg::Red;
+      blackCount++;
+      codeUsed[i] = true;
+      guessUsed[i] = true;
     }
   }
+
+  // count white pegs (correct colour, wrong position)
+  for (int i = 0; i < 4; ++i) {
+    if (guessUsed[i])
+      continue;
+    for (int j = 0; j < 4; ++j) {
+      if (!codeUsed[j] && guess[i] == code[j]) {
+        whiteCount++;
+        codeUsed[j] = true;
+        guessUsed[i] = true;
+        break;
+      }
+    }
+  }
+
+  // Fill feedback array: Greens first, then Whites, then Reds
+  int index = 0;
+  for (int i = 0; i < blackCount; ++i)
+    feedback[index++] = FeedbackPeg::Green;
+  for (int i = 0; i < whiteCount; ++i)
+    feedback[index++] = FeedbackPeg::White;
+
   return feedback;
 }
