@@ -1,5 +1,6 @@
-#include "../include/computer.h"
 #include <gtest/gtest.h>
+
+#include "../include/computer.h"
 
 class TestComputer : public ::testing::Test {
 public:

@@ -1,6 +1,7 @@
+#include "../include/codePeg.h"
+
 #include <algorithm>
 #include <stdexcept>
-#include "../include/codePeg.h"
 
 const std::string pegToString(CodePeg peg) {
   switch (peg) {

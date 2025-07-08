@@ -1,5 +1,6 @@
 #pragma once
 #include <optional>
+
 #include "board.h"
 #include "computer.h"
 #include "player.h"

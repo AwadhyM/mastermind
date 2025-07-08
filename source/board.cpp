@@ -1,5 +1,6 @@
-#include <iostream>
 #include "board.h"
+
+#include <iostream>
 
 void Board::addRound(const std::array<CodePeg, 4> &roundGuess,
                      const std::array<FeedbackPeg, 4> &roundFeedback) {
