@@ -1,6 +1,5 @@
 #include "../include/computer.h"
 
-#include <algorithm>
 #include <random>
 
 #include "../include/feedbackPeg.h"
@@ -27,41 +26,32 @@ CodePeg Computer::gen() {
 std::array<FeedbackPeg, 4>
 Computer::generateFeedback(const std::array<CodePeg, 4> &guess) const {
   std::array<FeedbackPeg, 4> feedback{};
-  std::array<bool, 4> codeUsed{};
-  std::array<bool, 4> guessUsed{};
+  std::array<bool, 4> code_used{};
+  std::array<bool, 4> guess_used{};
 
-  int blackCount = 0;
-  int whiteCount = 0;
-
-  // count black pegs (correct colour and position)
-  for (int i = 0; i < 4; ++i) {
+  for (int i = 0; i < feedback.size(); ++i) {
     if (guess[i] == code[i]) {
-      blackCount++;
-      codeUsed[i] = true;
-      guessUsed[i] = true;
+      feedback[i] = FeedbackPeg::Green;
+      code_used[i] = true;
+      guess_used[i] = true;
+    } else {
+      feedback[i] = FeedbackPeg::Red;
     }
   }
 
-  // count white pegs (correct colour, wrong position)
-  for (int i = 0; i < 4; ++i) {
-    if (guessUsed[i])
+  for (int i = 0; i < feedback.size(); ++i) {
+    if (guess_used[i])
       continue;
-    for (int j = 0; j < 4; ++j) {
-      if (!codeUsed[j] && guess[i] == code[j]) {
-        whiteCount++;
-        codeUsed[j] = true;
-        guessUsed[i] = true;
+
+    for (int j = 0; j < guess.size(); ++j) {
+      if (!code_used[j] && guess[i] == code[j]) {
+        feedback[i] = FeedbackPeg::White;
+        code_used[j] = true;
+        guess_used[i] = true;
         break;
       }
     }
   }
-
-  // Fill feedback array: Greens first, then Whites, then Reds
-  int index = 0;
-  for (int i = 0; i < blackCount; ++i)
-    feedback[index++] = FeedbackPeg::Green;
-  for (int i = 0; i < whiteCount; ++i)
-    feedback[index++] = FeedbackPeg::White;
 
   return feedback;
 }
