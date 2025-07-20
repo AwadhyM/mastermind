@@ -9,6 +9,13 @@ file(GLOB_RECURSE SOURCES CONFIGURE_DEPENDS source/*.cpp)
 
 add_executable(mastermind main.cpp ${SOURCES})
 
+if(NOT CMAKE_BUILD_TYPE)
+    set(CMAKE_BUILD_TYPE Release)
+endif()
+
+if(CMAKE_BUILD_TYPE STREQUAL "Debug")
+	target_compile_definitions(mastermind PRIVATE DEBUG_BUILD)
+endif()
 
 include(FetchContent)
 FetchContent_Declare(

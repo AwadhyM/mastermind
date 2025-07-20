@@ -24,7 +24,9 @@ Game::GameResult Game::play() {
   board.emplace();
   opponent.emplace();
   notifyUserThatCodeHasBeenGenerated();
+#ifdef DEBUG_BUILD
   printCode(opponent->getCode());
+#endif
 
   for (int i = 0; i <= numberOfRounds; i++) {
     const auto guess = user.makeGuess();
