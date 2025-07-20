@@ -3,7 +3,7 @@
 
 #include "board.h"
 #include "computer.h"
-#include "player.h"
+#include "user.h"
 
 class Game {
 
@@ -17,12 +17,12 @@ public:
   void printCode(std::array<CodePeg, 4> code) const;
   void printFeedback(std::array<FeedbackPeg, 4> code) const;
 
-  const Player &getUser() const { return user; }
+  const User &getUser() const { return user; }
 
 private:
   std::optional<Computer> opponent; // TODO/NOTE - This is an example of tight
   std::optional<Board> board;
-  Player user;
+  User user;
   void welcomeMessage() const;
   void notifyUserThatCodeHasBeenGenerated() const;
   bool hasPlayerWon() const;

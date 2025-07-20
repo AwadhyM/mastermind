@@ -5,9 +5,9 @@
 // TODO - For future work - Have this be a virtual class. Create a User and
 // Opponent class
 
-class Player {
+class User {
 public:
-  Player() {};
+  User() {};
   std::array<CodePeg, 4> makeGuess() const;
   CodePeg guessCodePeg() const;
   void guessEntryMessage(int codePart) const;
