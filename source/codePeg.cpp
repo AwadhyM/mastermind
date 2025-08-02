@@ -1,6 +1,7 @@
 #include "../include/codePeg.h"
 
 #include <algorithm>
+#include <iostream>
 #include <stdexcept>
 
 const std::string pegToString(CodePeg peg) {
@@ -13,6 +14,21 @@ const std::string pegToString(CodePeg peg) {
     return "Purple";
   case CodePeg::Yellow:
     return "Yellow";
+  default:
+    return "Unknown";
+  }
+}
+
+const std::string pegToChar(CodePeg peg) {
+  switch (peg) {
+  case CodePeg::Blue:
+    return "B";
+  case CodePeg::Orange:
+    return "O";
+  case CodePeg::Purple:
+    return "P";
+  case CodePeg::Yellow:
+    return "Y";
   default:
     return "Unknown";
   }
@@ -37,16 +53,27 @@ CodePeg stringToPeg(const std::string &str) {
   std::string input = str;
 
   // Make input case-insensitive
-  std::transform(input.begin(), input.end(), input.begin(), ::tolower);
+  std::transform(input.begin(), input.end(), input.begin(), ::toupper);
 
-  if (input == "blue")
+  if (input == "B")
     return CodePeg::Blue;
-  if (input == "orange")
+  if (input == "O")
     return CodePeg::Orange;
-  if (input == "yellow")
+  if (input == "Y")
     return CodePeg::Yellow;
-  if (input == "purple")
+  if (input == "P")
     return CodePeg::Purple;
 
   throw std::invalid_argument("Invalid color peg string: " + str);
+}
+
+void printInputOptions() {
+  std::cout << "Enter your guess using these color codes:\n";
+
+  for (CodePeg peg : allCodePegs) {
+    std::cout << pegToChar(peg) << " = " << pegToString(peg);
+    if (peg != allCodePegs.back())
+      std::cout << ", ";
+  }
+  std::cout << '\n';
 }

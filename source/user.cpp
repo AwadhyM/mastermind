@@ -7,11 +7,12 @@ void User::guessEntryMessage(int codePart) const {
                                              "fourth"};
   std::cout << "Enter your guess for the " << positions[codePart]
             << " part of the of the code:";
+
 }
 
 std::array<CodePeg, 4> User::makeGuess() const {
   std::array<CodePeg, 4> code{};
-
+  printInputOptions();
   int codePart{0};
   while (codePart < 4) {
     guessEntryMessage(codePart);
@@ -27,7 +28,6 @@ CodePeg User::guessCodePeg() const {
     std::getline(std::cin, userInput);
     try {
       CodePeg peg = stringToPeg(userInput);
-
       return peg;
     } catch (const std::invalid_argument &e) {
       std::cout << "Invalid color. Please try again.\n";
