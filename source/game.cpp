@@ -63,7 +63,11 @@ const std::string Game::getPromptToStartGame() const {
 }
 
 void Game::notifyUserThatCodeHasBeenGenerated() const {
-  std::cout << "Computer opponent has generated a secret code: ";
+#ifdef DEBUG_BUILD
+  std::cout << "Computer opponent has generated a secret code:";
+#else
+  std::cout << "Computer opponent has generated a secret code.\n\n";
+#endif
 }
 
 void Game::printCode(std::array<CodePeg, 4> code) const {
@@ -74,7 +78,7 @@ void Game::printCode(std::array<CodePeg, 4> code) const {
       std::cout << pegToString(code[i]) << ",";
     }
   }
-  std::cout << "\n\n";
+    std::cout << "\n\n";
 }
 
 void Game::printFeedback(std::array<FeedbackPeg, 4> code) const {
