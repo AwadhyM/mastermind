@@ -14,8 +14,9 @@ void Game::welcomeMessage() const {
   std::cout << "=====================================\n";
   std::cout << "Guess the secret code of colors.\n";
   std::cout << "You’ll receive feedback after each guess:\n";
-  std::cout << " - A black peg: correct color and position\n";
+  std::cout << " - A green peg: correct color and position\n";
   std::cout << " - A white peg: correct color, wrong position\n";
+  std::cout << " - A red peg: color is not part of code\n";
   std::cout << "Can you crack the code?\n\n";
   std::cout << "Good luck!\n\n";
 }
