@@ -7,7 +7,6 @@ void User::guessEntryMessage(int codePart) const {
                                              "fourth"};
   std::cout << "Enter your guess for the " << positions[codePart]
             << " part of the of the code:";
-
 }
 
 std::array<CodePeg, 4> User::makeGuess() const {
