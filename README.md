@@ -15,6 +15,8 @@ The current version of this game has the following gameplay features:
 - Modular structure with separation of interface and implementation
 - Custom classes for game elements: `CodePeg`, `FeedbackPeg`, `Board`, `Game`
 - Basic unit tests using CMake and GoogleTest
+- C++17 features:
+  - string_view 
 
 
 ## Build Instructions
@@ -22,7 +24,7 @@ The current version of this game has the following gameplay features:
 ### Prerequisites
 
 - CMake (version 3.14 or later recommended)
-- A C++11-compatible compiler (e.g., GCC, Clang, or MSVC)
+- A C++17-compatible compiler (e.g., GCC, Clang, or MSVC)
 
 ## Running pre-commit on all files
 ```bash
