@@ -32,16 +32,16 @@ void Game::guessEntryMessage(int codePart) {
 Game::GameResult Game::play() {
   board.emplace();
   opponent.emplace();
-  notifyUserThatCodeHasBeenGenerated();
+  const auto code = opponent->generateCode();
 #ifdef DEBUG_BUILD
-  printCode(opponent->getCode());
+  // printCode(opponent->getCode());
 #endif
 
   for (int i = 0; i <= numberOfRounds; i++) {
     const auto guess = user.makeGuess();
     const auto feedback = opponent->generateFeedback(
-        guess); // Not sure how right this is. Either get the guess from above.
-                // Or add the guess to the board, and then get it
+        code, guess); // Not sure how right this is. Either get the guess from
+                      // above. Or add the guess to the board, and then get it
     board->addRound(guess, feedback);
     board->render();
 

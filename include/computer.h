@@ -21,16 +21,15 @@ public:
    * required to guess.
    * @return An array of CodePegs representing the code.
    */
-  void generateCode();
+  std::array<CodePeg, 4> generateCode() const;
 
   /**
    * @brief Generates feedback based on other players guess
    * @return An array of FeedbackPegs representing the code.
    */
   std::array<FeedbackPeg, 4>
-  generateFeedback(const std::array<CodePeg, 4> &guess) const;
-
-  std::array<CodePeg, 4> getCode() const;
+  generateFeedback(const std::array<CodePeg, 4> &code,
+                   const std::array<CodePeg, 4> &guess) const;
 
 private:
   /**
@@ -38,9 +37,4 @@ private:
    * @return A randomly generated CodePeg.
    */
   static CodePeg gen();
-
-  /**
-   * @brief The generated code consisting of a fixed-length array of CodePegs.
-   */
-  std::array<CodePeg, 4> code;
 };

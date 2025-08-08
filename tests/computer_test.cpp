@@ -12,7 +12,7 @@ TEST_F(TestComputer, GeneratedCodeHasValidLengthAndColors) {
   for (int i = 0; i < 25; i++) {
     const int codeLength = 4;
     Computer comp = Computer();
-    auto code = comp.getCode();
+    auto code = comp.generateCode();
 
     // Check correct length
     EXPECT_EQ(code.size(), codeLength);

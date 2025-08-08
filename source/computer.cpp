@@ -1,19 +1,18 @@
 #include "../include/computer.h"
 
+#include <array>
 #include <random>
 
 #include "../include/feedbackPeg.h"
 
-std::array<CodePeg, 4> Computer::getCode() const { return code; }
+Computer::Computer() {};
 
-Computer::Computer() { generateCode(); }
-
-void Computer::generateCode() {
+std::array<CodePeg, 4> Computer::generateCode() const {
   std::array<CodePeg, 4> generatedCode{};
   for (auto &slot : generatedCode) {
     slot = Computer::gen();
   }
-  code = generatedCode;
+  return generatedCode;
 }
 
 CodePeg Computer::gen() {
@@ -24,7 +23,8 @@ CodePeg Computer::gen() {
 }
 
 std::array<FeedbackPeg, 4>
-Computer::generateFeedback(const std::array<CodePeg, 4> &guess) const {
+Computer::generateFeedback(const std::array<CodePeg, 4> &code,
+                           const std::array<CodePeg, 4> &guess) const {
   std::array<FeedbackPeg, 4> feedback{};
   std::array<bool, 4> code_used{};
   std::array<bool, 4> guess_used{};
