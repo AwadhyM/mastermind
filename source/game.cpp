@@ -2,6 +2,7 @@
 
 #include <algorithm>
 #include <iostream>
+#include <string_view>
 
 #include "board.h"
 #include "feedbackPeg.h"
@@ -19,6 +20,13 @@ void Game::welcomeMessage() const {
   std::cout << " - A red peg: color is not part of code\n";
   std::cout << "Can you crack the code?\n\n";
   std::cout << "Good luck!\n\n";
+}
+
+void Game::guessEntryMessage(int codePart) {
+  static constexpr std::array<std::string_view, 4> positions{"first", "second",
+                                                             "third", "fourth"};
+  std::cout << "Enter your guess for the " << positions[codePart]
+            << " part of the of the code:";
 }
 
 Game::GameResult Game::play() {
@@ -78,7 +86,7 @@ void Game::printCode(std::array<CodePeg, 4> code) const {
       std::cout << pegToString(code[i]) << ",";
     }
   }
-    std::cout << "\n\n";
+  std::cout << "\n\n";
 }
 
 void Game::printFeedback(std::array<FeedbackPeg, 4> code) const {

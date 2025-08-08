@@ -9,6 +9,7 @@ class Game {
 
 public:
   enum class GameResult { PLAYER_WON, PLAYER_LOSS };
+  static void guessEntryMessage(int codePart);
 
   Game();
   void promptUserToStartGame() const;

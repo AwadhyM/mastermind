@@ -10,7 +10,6 @@ public:
   User() {};
   std::array<CodePeg, 4> makeGuess() const;
   CodePeg guessCodePeg() const;
-  void guessEntryMessage(int codePart) const;
 
 private:
 };

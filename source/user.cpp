@@ -1,20 +1,13 @@
-#include "user.h"
-
 #include <iostream>
 
-void User::guessEntryMessage(int codePart) const {
-  const std::array<std::string, 4> positions{"first", "second", "third",
-                                             "fourth"};
-  std::cout << "Enter your guess for the " << positions[codePart]
-            << " part of the of the code:";
-}
+#include "game.h"
 
 std::array<CodePeg, 4> User::makeGuess() const {
   std::array<CodePeg, 4> code{};
   printInputOptions();
   int codePart{0};
   while (codePart < 4) {
-    guessEntryMessage(codePart);
+    Game::guessEntryMessage(codePart);
     code[codePart] = guessCodePeg();
     codePart++;
   }
