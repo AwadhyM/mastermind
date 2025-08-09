@@ -2,8 +2,7 @@
 #include <array>
 
 #include "codePeg.h"
-#include "feedbackPeg.h"
-#include "player.h"
+#include "playerBase.h"
 
 /**
  * @class Computer
