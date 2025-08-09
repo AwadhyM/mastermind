@@ -26,3 +26,9 @@ CodePeg User::guessCodePeg() const {
     }
   }
 }
+
+
+std::array<CodePeg, 4> User::generateCode() const {
+	// TODO - Implement code generation functionality
+    return {};
+}
