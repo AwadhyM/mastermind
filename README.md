@@ -16,6 +16,11 @@ The current version of this game has the following gameplay features:
 - Custom classes for game elements: `CodePeg`, `FeedbackPeg`, `Board`, `Game`
 - Basic unit tests using CMake and GoogleTest
 
+C++ features I have used here for the first time:
+  - string_view
+  - Unique Pointers
+  - Base Class  
+
 
 ## Build Instructions
 
