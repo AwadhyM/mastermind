@@ -6,6 +6,8 @@
 
 #include "board.h"
 #include "feedbackPeg.h"
+#include "user.h"
+#include "computer.h"
 
 Game::Game() : numberOfRounds(12) { welcomeMessage(); };
 
@@ -38,15 +40,15 @@ void Game::codeGenMessage(int codePart) {
 
 Game::GameResult Game::play() {
   board.emplace();
-  opponent.emplace();
-  const auto code = opponent->generateCode();
+  participants p = setUpParticipants();
+  const auto code = p.codemaker->generateCode();
 #ifdef DEBUG_BUILD
-  // printCode(opponent->getCode());
+  //printCode(p.codemaker->getCode());
 #endif
 
   for (int i = 0; i <= numberOfRounds; i++) {
-    const auto guess = user.makeGuess();
-    const auto feedback = opponent->generateFeedback(
+    const auto guess = p.codebreaker->makeGuess();
+    const auto feedback = p.codemaker->generateFeedback(
         code, guess); // Not sure how right this is. Either get the guess from
                       // above. Or add the guess to the board, and then get it
     board->addRound(guess, feedback);
@@ -110,4 +112,30 @@ bool Game::hasPlayerWon() const {
   const auto feedbackCurrentRound = board->getBoard().back().feedback;
   return std::all_of(feedbackCurrentRound.begin(), feedbackCurrentRound.end(),
                      [](FeedbackPeg f) { return f == FeedbackPeg::Green; });
+}
+
+Game::participants Game::setUpParticipants() {
+    participants p;
+    std::string input;
+
+    while (true) {
+        std::cout << "Would you like to be the Codemaker or Codebreaker? (maker/breaker): ";
+        std::cin >> input;
+
+        if (input == "maker") {
+            p.codemaker = std::make_unique<User>();
+            p.codebreaker = std::make_unique<Computer>();
+            break;
+        }
+        else if (input == "breaker") {
+            p.codemaker = std::make_unique<Computer>();
+            p.codebreaker = std::make_unique<User>();
+            break;
+        }
+        else {
+            std::cout << "Invalid choice. Please enter 'maker' or 'breaker'.\n";
+        }
+    }
+
+    return p;
 }

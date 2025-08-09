@@ -1,6 +1,7 @@
 #include <iostream>
 
 #include "game.h"
+#include "user.h"
 
 std::array<CodePeg, 4> User::makeGuess() const {
   std::array<CodePeg, 4> code{};

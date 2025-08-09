@@ -1,9 +1,9 @@
 #pragma once
 #include <optional>
+#include <memory>
 
 #include "board.h"
-#include "computer.h"
-#include "user.h"
+#include "playerBase.h"
 
 class Game {
 
@@ -19,12 +19,17 @@ public:
   void printCode(std::array<CodePeg, 4> code) const;
   void printFeedback(std::array<FeedbackPeg, 4> code) const;
 
-  const User &getUser() const { return user; }
 
 private:
-  std::optional<Computer> opponent; // TODO/NOTE - This is an example of tight
+
+  struct participants {
+	  std::unique_ptr<PlayerBase> codebreaker;
+	  std::unique_ptr<PlayerBase> codemaker;
+  };
+
+  participants setUpParticipants();
+
   std::optional<Board> board;
-  User user;
   void welcomeMessage() const;
   void notifyUserThatCodeHasBeenGenerated() const;
   bool hasPlayerWon() const;

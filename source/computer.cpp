@@ -1,5 +1,6 @@
 #include "../include/computer.h"
 
+#include <iostream>
 #include <array>
 #include <random>
 
