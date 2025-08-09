@@ -43,7 +43,7 @@ Game::GameResult Game::play() {
   participants p = setUpParticipants();
   const auto code = p.codemaker->generateCode();
 #ifdef DEBUG_BUILD
-  //printCode(p.codemaker->getCode());
+  printCode(code);
 #endif
 
   for (int i = 0; i <= numberOfRounds; i++) {
