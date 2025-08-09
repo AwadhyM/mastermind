@@ -3,13 +3,14 @@
 
 #include "codePeg.h"
 #include "feedbackPeg.h"
+#include "player.h"
 
 /**
  * @class Computer
  * @brief Represents a computer player that generates a random code of color
  * pegs.
  */
-class Computer {
+class Computer : public PlayerBase {
 public:
   /**
    * @brief Constructs a Computer object and generates a random code.
@@ -21,15 +22,9 @@ public:
    * required to guess.
    * @return An array of CodePegs representing the code.
    */
-  std::array<CodePeg, 4> generateCode() const;
+  std::array<CodePeg, 4> generateCode() const override;
 
-  /**
-   * @brief Generates feedback based on other players guess
-   * @return An array of FeedbackPegs representing the code.
-   */
-  std::array<FeedbackPeg, 4>
-  generateFeedback(const std::array<CodePeg, 4> &code,
-                   const std::array<CodePeg, 4> &guess) const;
+  std::array<CodePeg, 4> makeGuess() const override;
 
 private:
   /**
