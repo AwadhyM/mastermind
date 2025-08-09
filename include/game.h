@@ -10,6 +10,7 @@ class Game {
 public:
   enum class GameResult { PLAYER_WON, PLAYER_LOSS };
   static void guessEntryMessage(int codePart);
+  static void codeGenMessage(int codePart);
 
   Game();
   void promptUserToStartGame() const;

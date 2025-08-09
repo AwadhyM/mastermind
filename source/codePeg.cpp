@@ -68,7 +68,6 @@ CodePeg stringToPeg(const std::string &str) {
 }
 
 void printInputOptions() {
-  std::cout << "Enter your guess using these color codes:\n";
 
   for (CodePeg peg : allCodePegs) {
     std::cout << pegToChar(peg) << " = " << pegToString(peg);

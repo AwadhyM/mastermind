@@ -2,7 +2,7 @@
 
 std::array<FeedbackPeg, 4>
 PlayerBase::generateFeedback(const std::array<CodePeg, 4> &code,
-                           const std::array<CodePeg, 4> &guess) const {
+                             const std::array<CodePeg, 4> &guess) const {
   std::array<FeedbackPeg, 4> feedback{};
   std::array<bool, 4> code_used{};
   std::array<bool, 4> guess_used{};

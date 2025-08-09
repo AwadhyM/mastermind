@@ -29,6 +29,13 @@ void Game::guessEntryMessage(int codePart) {
             << " part of the of the code:";
 }
 
+void Game::codeGenMessage(int codePart) {
+  static constexpr std::array<std::string_view, 4> positions{"first", "second",
+                                                             "third", "fourth"};
+  std::cout << "Enter color for the " << positions[codePart]
+            << " part of the of the code";
+}
+
 Game::GameResult Game::play() {
   board.emplace();
   opponent.emplace();

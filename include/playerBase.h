@@ -3,8 +3,8 @@
 #include "feedbackPeg.h"
 class PlayerBase {
 public:
-	virtual std::array<CodePeg, 4> makeGuess() const = 0;
-    virtual std::array<CodePeg, 4> generateCode() const = 0;
+  virtual std::array<CodePeg, 4> makeGuess() const = 0;
+  virtual std::array<CodePeg, 4> generateCode() const = 0;
 
   /**
    * @brief Generates feedback based on other players guess
@@ -14,4 +14,3 @@ public:
   generateFeedback(const std::array<CodePeg, 4> &code,
                    const std::array<CodePeg, 4> &guess) const;
 };
-

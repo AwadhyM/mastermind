@@ -4,6 +4,7 @@
 
 std::array<CodePeg, 4> User::makeGuess() const {
   std::array<CodePeg, 4> code{};
+  std::cout << "Enter your guess using these color codes:\n";
   printInputOptions();
   int codePart{0};
   while (codePart < 4) {
@@ -27,8 +28,16 @@ CodePeg User::guessCodePeg() const {
   }
 }
 
-
 std::array<CodePeg, 4> User::generateCode() const {
-	// TODO - Implement code generation functionality
-    return {};
+  std::array<CodePeg, 4> code{};
+  std::cout << "Generate code using these color codes:\n";
+  printInputOptions();
+  int codePart{0};
+  while (codePart < 4) {
+    Game::codeGenMessage(codePart);
+    code[codePart] =
+        guessCodePeg(); // TODO - rewrite this to be validate code peg
+    codePart++;
+  }
+  return code;
 }
