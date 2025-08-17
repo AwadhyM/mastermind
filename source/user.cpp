@@ -1,7 +1,8 @@
+#include "user.h"
+
 #include <iostream>
 
 #include "game.h"
-#include "user.h"
 
 std::array<CodePeg, 4> User::makeGuess() const {
   std::array<CodePeg, 4> code{};
@@ -9,7 +10,7 @@ std::array<CodePeg, 4> User::makeGuess() const {
   printInputOptions();
   int codePart{0};
   while (codePart < 4) {
-    Game::guessEntryMessage(codePart);
+    Game::codeEntryMessage(codePart);
     code[codePart] = guessCodePeg();
     codePart++;
   }
@@ -35,7 +36,7 @@ std::array<CodePeg, 4> User::generateCode() const {
   printInputOptions();
   int codePart{0};
   while (codePart < 4) {
-    Game::codeGenMessage(codePart);
+    Game::codeEntryMessage(codePart);
     code[codePart] =
         guessCodePeg(); // TODO - rewrite this to be validate code peg
     codePart++;

@@ -5,9 +5,9 @@
 #include <string_view>
 
 #include "board.h"
+#include "computer.h"
 #include "feedbackPeg.h"
 #include "user.h"
-#include "computer.h"
 
 Game::Game() : numberOfRounds(12) { welcomeMessage(); };
 
@@ -24,14 +24,7 @@ void Game::welcomeMessage() const {
   std::cout << "Good luck!\n\n";
 }
 
-void Game::guessEntryMessage(int codePart) {
-  static constexpr std::array<std::string_view, 4> positions{"first", "second",
-                                                             "third", "fourth"};
-  std::cout << "Enter your guess for the " << positions[codePart]
-            << " part of the of the code:";
-}
-
-void Game::codeGenMessage(int codePart) {
+void Game::codeEntryMessage(int codePart) {
   static constexpr std::array<std::string_view, 4> positions{"first", "second",
                                                              "third", "fourth"};
   std::cout << "Enter color for the " << positions[codePart]
@@ -115,27 +108,26 @@ bool Game::hasPlayerWon() const {
 }
 
 Game::participants Game::setUpParticipants() {
-    participants p;
-    std::string input;
+  participants p;
+  std::string input;
 
-    while (true) {
-        std::cout << "Would you like to be the Codemaker or Codebreaker? (maker/breaker): ";
-        std::cin >> input;
+  while (true) {
+    std::cout << "Would you like to be the Codemaker or Codebreaker? "
+                 "(maker/breaker): ";
+    std::cin >> input;
 
-        if (input == "maker") {
-            p.codemaker = std::make_unique<User>();
-            p.codebreaker = std::make_unique<Computer>();
-            break;
-        }
-        else if (input == "breaker") {
-            p.codemaker = std::make_unique<Computer>();
-            p.codebreaker = std::make_unique<User>();
-            break;
-        }
-        else {
-            std::cout << "Invalid choice. Please enter 'maker' or 'breaker'.\n";
-        }
+    if (input == "maker") {
+      p.codemaker = std::make_unique<User>();
+      p.codebreaker = std::make_unique<Computer>();
+      break;
+    } else if (input == "breaker") {
+      p.codemaker = std::make_unique<Computer>();
+      p.codebreaker = std::make_unique<User>();
+      break;
+    } else {
+      std::cout << "Invalid choice. Please enter 'maker' or 'breaker'.\n";
     }
+  }
 
-    return p;
+  return p;
 }

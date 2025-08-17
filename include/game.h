@@ -1,6 +1,6 @@
 #pragma once
-#include <optional>
 #include <memory>
+#include <optional>
 
 #include "board.h"
 #include "playerBase.h"
@@ -9,8 +9,7 @@ class Game {
 
 public:
   enum class GameResult { PLAYER_WON, PLAYER_LOSS };
-  static void guessEntryMessage(int codePart);
-  static void codeGenMessage(int codePart);
+  static void codeEntryMessage(int codePart);
 
   Game();
   void promptUserToStartGame() const;
@@ -19,12 +18,10 @@ public:
   void printCode(std::array<CodePeg, 4> code) const;
   void printFeedback(std::array<FeedbackPeg, 4> code) const;
 
-
 private:
-
   struct participants {
-	  std::unique_ptr<PlayerBase> codebreaker;
-	  std::unique_ptr<PlayerBase> codemaker;
+    std::unique_ptr<PlayerBase> codebreaker;
+    std::unique_ptr<PlayerBase> codemaker;
   };
 
   participants setUpParticipants();

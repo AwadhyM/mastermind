@@ -1,7 +1,7 @@
 #include "../include/computer.h"
 
-#include <iostream>
 #include <array>
+#include <iostream>
 #include <random>
 
 Computer::Computer() {};
