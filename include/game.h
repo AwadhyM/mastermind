@@ -8,7 +8,7 @@
 class Game {
 
 public:
-  enum class GameResult { PLAYER_WON, PLAYER_LOSS };
+  enum class GameResult { CODEBREAKER_WIN, CODEBREAKER_LOSS };
   static void codeEntryMessage(int codePart);
 
   Game();

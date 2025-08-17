@@ -48,10 +48,10 @@ Game::GameResult Game::play() {
     board->render();
 
     if (hasPlayerWon())
-      return GameResult::PLAYER_WON;
+      return GameResult::CODEBREAKER_WIN;
   }
 
-  return GameResult::PLAYER_LOSS;
+  return GameResult::CODEBREAKER_LOSS;
 }
 
 void Game::promptUserToStartGame() const {

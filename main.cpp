@@ -14,11 +14,11 @@ int main() {
 
   Game::GameResult res = game.play();
 
-  if (res == Game::GameResult::PLAYER_WON) {
-    std::cout << "Congratulations! You guessed the code correctly."
+  if (res == Game::GameResult::CODEBREAKER_WIN) {
+    std::cout << "Congratulations! Codebreaker guessed the code correctly."
               << std::endl;
   } else {
-    std::cout << "You failed to guess the code. Better luck next time..."
+    std::cout << "Codebreaker failed to guess the code. Better luck next time..."
               << std::endl;
   }
 
