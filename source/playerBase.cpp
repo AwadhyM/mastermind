@@ -1,35 +1,41 @@
 #include "playerBase.h"
 
+#include <vector>
+
 std::array<FeedbackPeg, 4>
 PlayerBase::generateFeedback(const std::array<CodePeg, 4> &code,
                              const std::array<CodePeg, 4> &guess) const {
-  std::array<FeedbackPeg, 4> feedback{};
-  std::array<bool, 4> code_used{};
-  std::array<bool, 4> guess_used{};
+  std::vector<FeedbackPeg> feedback;
+  feedback.reserve(4);
 
-  for (int i = 0; i < feedback.size(); ++i) {
+  std::array<int, 4> code_count{};  // count of each color in the code
+  std::array<int, 4> guess_count{}; // count of each color in the guess
+
+  int green_count = 0;
+
+  // First pass: count exact matches (green) and build frequency for others
+  for (int i = 0; i < 4; ++i) {
     if (guess[i] == code[i]) {
-      feedback[i] = FeedbackPeg::Green;
-      code_used[i] = true;
-      guess_used[i] = true;
+      green_count++;
     } else {
-      feedback[i] = FeedbackPeg::Red;
+      code_count[static_cast<int>(code[i])]++;
+      guess_count[static_cast<int>(guess[i])]++;
     }
   }
 
-  for (int i = 0; i < feedback.size(); ++i) {
-    if (guess_used[i])
-      continue;
-
-    for (int j = 0; j < guess.size(); ++j) {
-      if (!code_used[j] && guess[i] == code[j]) {
-        feedback[i] = FeedbackPeg::White;
-        code_used[j] = true;
-        guess_used[i] = true;
-        break;
-      }
-    }
+  // Second pass: count color-only matches (white)
+  int white_count = 0;
+  for (int color = 0; color < 4; ++color) {
+    white_count += std::min(code_count[color], guess_count[color]);
   }
 
-  return feedback;
+  feedback.insert(feedback.end(), green_count, FeedbackPeg::Green);
+  feedback.insert(feedback.end(), white_count, FeedbackPeg::White);
+  feedback.insert(feedback.end(), 4 - green_count - white_count,
+                  FeedbackPeg::Red);
+
+  std::array<FeedbackPeg, 4> feedback_array{};
+  std::copy(feedback.begin(), feedback.end(), feedback_array.begin());
+
+  return feedback_array;
 }
